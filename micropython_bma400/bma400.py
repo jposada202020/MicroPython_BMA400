@@ -13,6 +13,7 @@ MicroPython Driver for the Bosch BMA400 Accelerometer
 
 """
 
+import time
 from micropython import const
 from micropython_bma400.i2c_helpers import CBits, RegisterStruct
 
