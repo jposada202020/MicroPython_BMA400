@@ -41,7 +41,7 @@ classifiers = [
 dynamic = ["dependencies", "optional-dependencies"]
 
 [tool.setuptools]
-py-modules = ["bma400"]
+packages = ["micropython_bma400"]
 
 [tool.setuptools.dynamic]
 dependencies = {file = ["requirements.txt"]}
