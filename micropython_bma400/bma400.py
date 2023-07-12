@@ -30,6 +30,7 @@ _REG_WHOAMI = const(0x00)
 _ACC_CONFIG0 = const(0x19)
 _ACC_CONFIG1 = const(0x1A)
 _ACC_CONFIG2 = const(0x1B)
+_ACC_CONVERSION = const(9.80665)
 
 # Power Modes
 SLEEP_MODE = const(0x00)
@@ -356,7 +357,7 @@ class BMA400:
     @property
     def acceleration(self) -> Tuple[int, int, int]:
         """
-        Acceleration
+        Acceleration in :math:`m/s^2`
         :return: acceleration
         """
         rawx, rawy, rawz = self._acceleration
@@ -370,7 +371,7 @@ class BMA400:
         if rawz > 2047:
             rawz = rawz - 4096
 
-        factor = acc_range_factor[self._acc_range_mem]
+        factor = acc_range_factor[self._acc_range_mem] * _ACC_CONVERSION
 
         return rawx / factor, rawy / factor, rawz / factor
 
@@ -387,7 +388,6 @@ class BMA400:
 
     @staticmethod
     def _twos_comp(val: int, bits: int) -> int:
-
         if val & (1 << (bits - 1)) != 0:
             return val - (1 << bits)
         return val

@@ -11,5 +11,5 @@ bma = bma400.BMA400(i2c)
 
 while True:
     accx, accy, accz = bma.acceleration
-    print("x:{:.2f}G y:{:.2f}G z:{:.2f}G".format(accx, accy, accz))
+    print(f"x:{accx:.2f}Gs, y:{accy:.2f}Gs, z:{accz:.2f}Gs")
     time.sleep(0.5)

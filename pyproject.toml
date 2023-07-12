@@ -26,7 +26,6 @@ keywords = [
     "gravity",
     "sensor",
     "bosch",
-    "bma400",
     "accelerometer",
 ]
 license = {text = "MIT"}

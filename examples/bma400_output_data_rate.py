@@ -16,6 +16,6 @@ while True:
         print("Current Output data rate setting: ", bma.output_data_rate)
         for _ in range(10):
             accx, accy, accz = bma.acceleration
-            print("x:{:.2f}Gs, y:{:.2f}Gs, z:{:.2f}Gs".format(accx, accy, accz))
+            print(f"x:{accx:.2f}Gs, y:{accy:.2f}Gs, z:{accz:.2f}Gs")
             time.sleep(0.5)
         bma.output_data_rate = output_data_rate
